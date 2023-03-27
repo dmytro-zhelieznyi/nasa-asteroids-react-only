@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {NASA_API_KEY} from "../Constant";
+import {NASA_API_KEY, NEO_LOOK_UP_URL} from "../Constant";
 
 const AsteroidDetails = (props) => {
     const [asteroid, setAsteroid] = useState(null);
@@ -8,7 +8,7 @@ const AsteroidDetails = (props) => {
 
     useEffect(() => {
         const fetchAsteroid = async () => {
-            const URL = "https://api.nasa.gov/neo/rest/v1/neo/" + props.asteroid.id +
+            const URL = NEO_LOOK_UP_URL + "/" + props.asteroid.id +
                 "?api_key=" + NASA_API_KEY;
             try {
                 const response = await fetch(URL);
